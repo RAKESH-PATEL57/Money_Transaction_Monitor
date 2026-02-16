@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Power, Wallet, Plus, Activity, TrendingUp } from 'lucide-react';
 import './App.css';
 
-const API = "http://localhost:5000/api";
+const API_URL = import.meta.env.VITE_API_URL;
 
 function App() {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('userData')));
@@ -21,7 +21,7 @@ function App() {
   }, [user]);
 
   const fetchTransactions = async () => {
-    const res = await axios.get(`${API}/transactions/${user.id}`);
+    const res = await axios.get(`${API_URL}/transactions/${user.id}`);
     setTransactions(res.data);
   };
 
@@ -59,7 +59,7 @@ function App() {
   const handleAuth = async () => {
     try {
       const endpoint = isLogin ? '/auth/login' : '/auth/register';
-      const res = await axios.post(API + endpoint, authForm);
+      const res = await axios.post(API_URL + endpoint, authForm);
       if (isLogin) {
         localStorage.setItem('userData', JSON.stringify(res.data.user ? {id: res.data.user.id, username: res.data.user.username, budget: res.data.user.budget} : null));
         localStorage.setItem('token', res.data.token);
@@ -72,7 +72,7 @@ function App() {
   };
 
   const handleUpdateBudget = async () => {
-    await axios.post(`${API}/user/budget`, { userId: user.id, budget: budgetInput });
+    await axios.post(`${API_URL}/user/budget`, { userId: user.id, budget: budgetInput });
     const updatedUser = { ...user, budget: budgetInput };
     setUser(updatedUser);
     localStorage.setItem('userData', JSON.stringify(updatedUser));
@@ -82,7 +82,7 @@ function App() {
 
   const handleAddTx = async (e) => {
     e.preventDefault();
-    const res = await axios.post(`${API}/transactions/add`, { ...newTx, userId: user.id });
+    const res = await axios.post(`${API_URL}/transactions/add`, { ...newTx, userId: user.id });
     const updated = [res.data, ...transactions];
     setTransactions(updated);
 
