@@ -22,7 +22,6 @@ body {
   min-height: 100vh;
   width: 100vw;
   overflow-x: hidden;
-  border: 2px solid red;
 }
 
 /* AUTH UI */
@@ -31,7 +30,6 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  border: 2px solid red;
 }
 
 .glass-card {
