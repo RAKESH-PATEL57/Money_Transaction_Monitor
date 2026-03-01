@@ -26,7 +26,7 @@ export default function Auth({ setUser }) {
   return (
     <div className="auth-container">
       <div className="glass-card">
-        <h2 style={{color: 'var(--neon-cyan)', textAlign: 'center', marginBottom: '20px', letterSpacing:'3px'}}>Rakesh's Money Transaction Monitor</h2>
+        <h2 style={{color: 'var(--neon-cyan)', textAlign: 'center', marginBottom: '20px', letterSpacing:'3px'}}>Money Transaction Monitor</h2>
         <input placeholder="Operator Identity (Username)" onChange={e => setForm({...form, username: e.target.value})} />
         <input type="password" placeholder="Passcode" onChange={e => setForm({...form, password: e.target.value})} />
         <button className="btn-neon" onClick={handleAuth}>{isLogin ? "INITIALIZE LOGIN" : "REGISTER OPERATOR"}</button>
