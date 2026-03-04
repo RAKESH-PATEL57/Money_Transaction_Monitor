@@ -74,7 +74,30 @@ input:focus, select:focus { border-color: var(--neon-cyan); box-shadow: 0 0 10px
 }
 
 /* Category Modules / Sub-items */
-.category-module { border-top: 3px solid var(--neon-purple); }
+.category-module 
+{
+  border-top: 3px solid var(--neon-purple);
+  overflow-y: auto;
+}
+
+.category-module .category_items_container
+{
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.category-module .category_items_container::-webkit-scrollbar 
+{
+  width: 6px;
+}
+
+.category-module .category_items_container::-webkit-scrollbar-thumb 
+{
+  background: var(--neon-cyan);
+  border-radius: 3px;
+}
+
 .category-item {
   display: flex; justify-content: space-between; padding: 12px;
   background: rgba(255, 255, 255, 0.03); margin-bottom: 8px; border-radius: 8px;

@@ -71,7 +71,7 @@ export default function Dashboard({ user, setUser }) {
         </div>
         <div className="glass-card" style={{textAlign:'center', borderBottom:'3px solid var(--neon-cyan)'}}>
           <small>MONTHLY BUDGET</small>
-          <h2 style={{color:'var(--neon-cyan)'}}>₹{user.budget.toFixed(2)}</h2>
+          <h2 style={{color:'var(--neon-cyan)'}}>₹{user.budget}</h2>
         </div>
         <div className="glass-card" style={{textAlign:'center', borderBottom: data.remaining < 0 ? '3px solid var(--neon-red)' : '3px solid var(--neon-green)'}}>
           <small>REMAINING (MONTHLY)</small>

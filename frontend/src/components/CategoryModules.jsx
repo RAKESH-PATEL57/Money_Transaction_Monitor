@@ -64,7 +64,7 @@ export default function CategoryModules({ transactions }) {
             </div>
             
             {/* Body: Specific Items Breakdown */}
-            <div style={{maxHeight:'250px', overflowY:'auto', paddingRight:'10px'}}>
+            <div className='category_items_container'>
               {groupedData[cat].itemsList.map(item => (
                 <div key={item.name}>
                   <div className="item-stat">
